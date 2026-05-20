@@ -42,9 +42,6 @@ public class Main {
         observer = new EmailService(email1, password1);
         reminderService = new ReminderService(observer);
         bookingService = new BookingService(observer, scheduleService);
-        System.out.println("========================================");
-        System.out.println("   Appointment Scheduling System       ");
-        System.out.println("========================================");
 
         boolean running = true;
 
