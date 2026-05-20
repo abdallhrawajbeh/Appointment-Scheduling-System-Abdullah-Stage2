@@ -1,0 +1,7 @@
+09:00,false
+10:00,false
+11:00,false
+12:00,false
+15:00,false
+20:00,false
+22:13,false
