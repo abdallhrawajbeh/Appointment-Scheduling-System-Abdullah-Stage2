@@ -26,19 +26,15 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // ✅ تحميل الـ credentials من .env
-     //   Dotenv dotenv = Dotenv.configure()
-       //         .directory("C:/Users/user/Desktop/appointment-scheduling-system-main/appointment-scheduling-system-main")
-         //       .load();
-    	System.out.println("Working dir: " + new java.io.File(".").getAbsolutePath());
+
+
 
     	Dotenv dotenv = Dotenv.configure()
     	        .directory("./")
     	        .filename(".env")
     	        .load();
 
-    	String email = dotenv.get("EMAIL_USERNAME");
-    	String password = dotenv.get("EMAIL_PASSWORD");
+
         String email1 = dotenv.get("EMAIL_USERNAME");
         String password1 = dotenv.get("EMAIL_PASSWORD");
 
