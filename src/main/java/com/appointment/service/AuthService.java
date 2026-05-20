@@ -1,14 +1,24 @@
 package com.appointment.service;
 
 import com.appointment.domain.Administrator;
+import io.github.cdimascio.dotenv.Dotenv;
+import java.util.Objects;
 
 public class AuthService {
 
     private Administrator loggedInAdmin;
 
-    public boolean login(String username, String password) {
+    private final Dotenv dotenv = Dotenv.configure()
+            .directory("./")
+            .filename(".env")
+            .ignoreIfMissing()
+            .load();
 
-        if(username.equals("admin") && password.equals("1234")){
+    private final String adminUsername = dotenv.get("ADMIN_USERNAME");
+    private final String adminPassword = dotenv.get("ADMIN_PASSWORD");
+
+    public boolean login(String username, String password) {
+        if (Objects.equals(username, adminUsername) && Objects.equals(password, adminPassword)) {
             loggedInAdmin = new Administrator(username, password);
             return true;
         }
@@ -16,11 +26,11 @@ public class AuthService {
         return false;
     }
 
-    public void logout(){
+    public void logout() {
         loggedInAdmin = null;
     }
 
-    public boolean isLoggedIn(){
+    public boolean isLoggedIn() {
         return loggedInAdmin != null;
     }
 }
